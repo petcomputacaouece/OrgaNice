@@ -1,29 +1,55 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home</title>
+
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <link rel="stylesheet" href="./src/dist/output.css">
 </head>
 
-<style type="text/tailwindcss">
-    @theme {
-        extend: {
-            colors: {
-                text: "#000000",
-                text-secondary: "#AEAEAE",
-                primary: "#2C3C7A",
-                secondary: "#FBBF24",
-                bg: "#F6F6F6",
-
-                --gradient: linear-gradient(90deg, #4C64CE -11.02%, #2B3A75 100%);
-            },
-        }
-    }
-</style>
-
-
 <body>
-    
+    <div id="root"></div>
+    <script type="text/babel" src="./js/componentes/ui/Text.js"></script>
+    <script type="text/babel" src="./js/componentes/ui/Sidebar.js"></script>
+    <script type="text/babel" src="./js/componentes/ui/Header.js"></script>
+    <script type="text/babel" src="./js/componentes/ui/Section.js"></script>
+
+    <script type="text/babel">
+        function App() {
+            const [sidebarOpen, setSidebarOpen] = React.useState(false);
+            return (
+                <>
+
+                    <Header onMenuClick={() => setSidebarOpen(!sidebarOpen)} />
+                    <main className="flex">
+                        {sidebarOpen && <SideBar />}
+                        <div className="py-12">
+                            <Text as="span" variant="titulo" className="py-36 pl-36">Geral / Inicio</Text>
+                            <div className="grid grid-cols-2 gap-x-80">
+                                <Section />
+                                <Section />
+                                <Section />
+                                <Section />
+                            </div>
+
+                        </div>
+
+
+                    </main>
+
+                </>
+            );
+        }
+
+        ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+    </script>
+
+
 </body>
+
 </html>
