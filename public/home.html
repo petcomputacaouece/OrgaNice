@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <!-- CAMINHO CORRETO DO CSS -->
+    <link rel="stylesheet" href="../src/dist/output.css">
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <!-- CAMINHOS CORRETOS DOS SCRIPTS -->
+    <script type="text/babel" src="../src/js/componentes/ui/Text.js"></script>
+    <script type="text/babel" src="../src/js/componentes/ui/Sidebar.js"></script>
+    <script type="text/babel" src="../src/js/componentes/ui/Header.js"></script>
+    <script type="text/babel" src="../src/js/componentes/ui/Section.js"></script>
+
+    <script type="text/babel">
+        function App() {
+            const [sidebarOpen, setSidebarOpen] = React.useState(false);
+            return (
+                <>
+                    <Header onMenuClick={() => setSidebarOpen(!sidebarOpen)} />
+                    <main className="flex">
+                        {sidebarOpen && <SideBar />}
+                        <div className="py-12">
+                            <Text as="span" variant="titulo" className="py-36 pl-36">Geral / Inicio</Text>
+                            <div className="grid grid-cols-2 gap-x-80">
+                                <Section />
+                                <Section />
+                                <Section />
+                                <Section />
+                            </div>
+                        </div>
+                    </main>
+                </>
+            );
+        }
+
+        ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+    </script>
+
+</body>
+
+</html>
