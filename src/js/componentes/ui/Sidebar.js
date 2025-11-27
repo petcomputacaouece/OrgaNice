@@ -47,12 +47,12 @@ const IconCalendar = (
 
 function SideBar() {
     return (
-        <aside className="bg-bg-secondary w-64 h-[main] border-r-2 flex flex-col gap-4">
+        <aside className="bg-bg-secondary w-64 min-h-lvh border-r-2 flex flex-col gap-4 pt-8">
 
             <div className="flex flex-col gap-6 border-b-2 p-4 w-64">
                 <div className="flex items-center gap-2 cursor-pointer">
                     {IconHome}
-                    <Text as="p" variant="default">Home</Text>
+                    <Text as="p" variant="default"><a href="../public/home.html">Home</a></Text>
                 </div>
 
                 <div className="flex items-center gap-2 cursor-pointer">
