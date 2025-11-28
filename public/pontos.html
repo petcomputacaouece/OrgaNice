@@ -40,6 +40,11 @@
 
             const [sidebarOpen, setSidebarOpen] = React.useState(false);
             const [popupProfileOpen, setPopupProfileOpen] = React.useState(false);
+            const groupPet = {
+                petiano1: { namePetiano: "Ana Beatriz de Oliveira Duarte", pontuacao: 10 },
+                petiano2: { namePetiano: "Camila Pinheiro Dias", pontuacao: 10 },
+                petiano3: { namePetiano: "Gabriel Marques Araujo", pontuacao: 10 }
+            }
 
             return (
                 <>
@@ -55,27 +60,39 @@
 
                         <main className="flex h-full min-h-screen pt-16">
                             <div className="flex flex-col py-12 pl-36 gap-24">
-                                <Text as="span" variant="titulo" className="">Organizacao / Pontos</Text>
+                                <Text as="span" variant="titulo">Organizacao / Pontos</Text>
 
                                 <div id="divSecoes" className="flex gap-32">
-                                    <Section nameSection="Pontuacao" className="text-center px-12 py-8">
-                                        <Text as="span" variant="default" className="text-left m-4 mt-10 text-text-secondary"> Junho de 2025 </Text>
 
-                                        <TableUI />
-                                    </Section>
+                                    <div class="divTables" className="flex gap-64">
+                                        <TableUI title="Junho de 2025" columns={["Petiano", "Pontuação"]} nameSection="Pontuacao Geral">
+                                            {
+                                                Object.values(groupPet).map((petiano, i) => (
+                                                    <tr key={i}>
+                                                        <td className="px-10 py-4 text-left">{petiano.namePetiano}</td>
+                                                        <td className="px-10 py-4">{petiano.pontuacao}</td>
+                                                    </tr>
+                                                ))
+                                            }
+                                        </TableUI>
+                                        <TableUI title="Junho de 2025" columns={["Ocorrencia", "Valor"]} nameSection="Ocorrencias">
+                                            {
 
-                                    <Section nameSection="Ocorrencias" className="text-center px-12 py-8">
-                                        <TableUI />
-                                    </Section>
-                                    <div className="grid absolute top-[90%]  right-4">
+                                            }
+                                        </TableUI>
+                                    </div>
+
+                                    <div className="grid absolute top-[90%] right-4">
                                         <Button textButton="Adicionar Ocorrencia" />
-                                        <Text as="span" variant="muted" className="text-base text-center">Apenas para membros da Coordenacao </Text>
+                                        <Text as="span" variant="muted" className="text-base text-center">
+                                            Apenas para membros da Coordenacao
+                                        </Text>
                                     </div>
 
                                 </div>
                             </div>
-
                         </main>
+
                     </div>
 
 
