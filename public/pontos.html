@@ -9,6 +9,7 @@
     <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="../src/js/Function/Points.js"></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -33,18 +34,20 @@
     <script type="text/babel" src="../src/js/componentes/ui/Section.js"></script>
     <script type="text/babel" src="../src/js/componentes/ui/Button.js"></script>
     <script type="text/babel" src="../src/js/componentes/ui/Table.js"></script>
+    <script type="text/babel" src="../src/js/componentes/ui/PopUp.js"></script>
 
     <script type="text/babel">
 
         function App() {
 
+            const { useState, useRef } = React;
             const [sidebarOpen, setSidebarOpen] = React.useState(false);
             const [popupProfileOpen, setPopupProfileOpen] = React.useState(false);
-            const groupPet = {
-                petiano1: { namePetiano: "Ana Beatriz de Oliveira Duarte", pontuacao: 10 },
-                petiano2: { namePetiano: "Camila Pinheiro Dias", pontuacao: 10 },
-                petiano3: { namePetiano: "Gabriel Marques Araujo", pontuacao: 10 }
-            }
+            const [popupButtonOpen, setPopupButtonOpen] = React.useState(false);
+            const inputNamePetiano = React.useRef(null);
+            const inputPointPetiano = React.useRef(null);
+            const inputDescPetiano = React.useRef(null);
+            const [occurrences, setOccurrences] = useState([]);
 
             return (
                 <>
@@ -64,31 +67,60 @@
 
                                 <div id="divSecoes" className="flex gap-32">
 
-                                    <div class="divTables" className="flex gap-64">
-                                        <TableUI title="Junho de 2025" columns={["Petiano", "Pontuação"]} nameSection="Pontuacao Geral">
+                                    <div class="divTables" className="flex gap-24">
+                                        <TableUI title="Junho de 2025" columns={["Petiano", "Pontuação"]} nameSection="Pontuacao Geral" >
                                             {
                                                 Object.values(groupPet).map((petiano, i) => (
                                                     <tr key={i}>
-                                                        <td className="px-10 py-4 text-left">{petiano.namePetiano}</td>
+                                                        <td className="px-10 py-4 text-left w-screen">{petiano.namePetiano}</td>
                                                         <td className="px-10 py-4">{petiano.pontuacao}</td>
                                                     </tr>
                                                 ))
                                             }
                                         </TableUI>
                                         <TableUI title="Junho de 2025" columns={["Ocorrencia", "Valor"]} nameSection="Ocorrencias">
-                                            {
-
-                                            }
+                                            {occurrences.map((occ, i) => (
+                                                <tr key={i}>
+                                                    <td className="px-10 py-4 text-left">{occ.resIptNamePetiano} - {occ.resIptDescPetiano}</td>
+                                                    <td className="px-10 py-4 text-left">{occ.points}</td>
+                                                </tr>
+                                            ))}
                                         </TableUI>
+
+
+
                                     </div>
 
+
                                     <div className="grid absolute top-[90%] right-4">
-                                        <Button textButton="Adicionar Ocorrencia" />
+                                        <Button textButton="Adicionar Ocorrencia" onClick={() => setPopupButtonOpen(true)} />
                                         <Text as="span" variant="muted" className="text-base text-center">
                                             Apenas para membros da Coordenacao
                                         </Text>
                                     </div>
+                                    <PopUpUI isOpen={popupButtonOpen} onPopUpClick={() => setPopupButtonOpen(!popupButtonOpen)} nameSection="Adicionar Ocorrencia">
+                                        <div id="divInfos" className="pt-12 text-center grid gap-8">
+                                            <div className="grid text-center">
+                                                <label className="" > Nome </label>
+                                                <input type="text" ref={inputNamePetiano} className="border border-text-secondary rounded px-2 py-1 mt-2 w-1/2 mx-auto" />
+                                            </div>
 
+                                            <div className="grid text-center">
+                                                <label className=""> Descricao </label>
+                                                <input type="text" ref={inputDescPetiano} className="border border-text-secondary rounded px-2 py-1 mt-2 w-1/2 h-12 mx-auto" />
+                                            </div>
+
+                                            <div className="grid text-center">
+                                                <label className=""> Teste </label>
+                                                <input type="number" ref={inputPointPetiano} className="border border-text-secondary rounded px-2 py-1 mt-2 w-16 mx-auto" />
+                                            </div>
+
+
+
+                                            <Button textButton="Adicionar" onClick={() => addOccurrence(inputNamePetiano.current.value, inputPointPetiano.current.value, inputDescPetiano.current.value, setOccurrences)} />
+
+                                        </div>
+                                    </PopUpUI>
                                 </div>
                             </div>
                         </main>
