@@ -1,13 +1,15 @@
-import Rect from "react";
+import React from "react";
+import Section from './Section';
+import Typography from './Typography';
 
-function TableUI({ title, columns = [], children, nameSection }) {
+function Table({ title, columns = [], children, nameSection, className = "" }) {
     return (
-        <Section nameSection={nameSection} className="text-center px-12 py-8">
+        <Section nameSection={nameSection} className={`text-center px-12 py-8 min-w-96 ${className}`}>
             <Typography as="span" variant="default" className="text-left m-4 mt-10 text-text-secondary">
                 {title}
             </Typography>
 
-            <table>
+            <table className="whitespace-nowrap">
                 <thead>
                     <tr className="border-b border-gray-300">
                         {columns.map((col, i) => (
@@ -26,4 +28,4 @@ function TableUI({ title, columns = [], children, nameSection }) {
     );
 }
 
-export default TableUI;
+export default Table;

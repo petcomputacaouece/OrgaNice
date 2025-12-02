@@ -81,6 +81,13 @@ function Sidebar({ isOpen }) {
                 </div>
             </div>
 
+            <div className="flex flex-col gap-6 border-b-2 p-4 w-64">
+                <Link to={"/pontos"} className="flex items-center gap-2 cursor-pointer">
+                    {IconMembers}
+                    <Typography as="p" variant="default">Pontuacao</Typography>
+                </Link>
+            </div>
+
         </aside>
     );
 }

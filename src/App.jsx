@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Layout } from './ui/Layout';
 import { Home } from './pages/Home';
 import { Perfil } from './pages/Perfil';
+import { Pontos } from './pages/Pontos';
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
 
           <Route index element={<Home />} />
           <Route path="perfil" element={<Perfil />} />
+          <Route path="pontos" element={<Pontos />} />
 
         </Route>
       </Routes>
