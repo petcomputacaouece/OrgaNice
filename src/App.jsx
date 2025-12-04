@@ -8,6 +8,7 @@ import { Layout } from './ui/Layout';
 import { Home } from './pages/Home';
 import { Perfil } from './pages/Perfil';
 import { Pontos } from './pages/Pontos';
+import { Modelo } from './pages/Modelo';
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
           <Route index element={<Home />} />
           <Route path="perfil" element={<Perfil />} />
           <Route path="pontos" element={<Pontos />} />
+          <Route path="modelo" element={<Modelo />} />
 
         </Route>
       </Routes>

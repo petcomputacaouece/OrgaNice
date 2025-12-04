@@ -86,6 +86,10 @@ function Sidebar({ isOpen }) {
                     {IconMembers}
                     <Typography as="p" variant="default">Pontuacao</Typography>
                 </Link>
+                <Link to={"/modelo"} className="flex items-center gap-2 cursor-pointer">
+                    {IconHome}
+                    <Typography as="p" variant="default">Modelo do site</Typography>
+                </Link>
             </div>
 
         </aside>

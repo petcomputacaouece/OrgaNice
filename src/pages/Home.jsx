@@ -12,8 +12,7 @@ export function Home() {
             </div>
 
             <div className="grid grid-cols-2 gap-x-80 px-12">
-                <Section nameSection="Minhas Tarefas" className="text-center">
-                </Section>
+                <Section nameSection="Minhas Tarefas" className="text-center" />
 
                 <Section nameSection="Calendario" className="text-center" />
 
