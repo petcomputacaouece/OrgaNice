@@ -4,36 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OrgaNice - Ranking</title>
-    
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <style>
-        body { font-family: 'Inter', sans-serif; }
-    </style>
+    <style> body { font-family: 'Inter', sans-serif; } </style>
 </head>
 <body class="bg-gray-50 h-screen overflow-hidden flex">
 
-    <aside id="sidebar-container" class="w-64 bg-white shadow-md hidden md:block relative z-10">
-        </aside>
+    <aside id="sidebar-container" class="w-64 bg-white shadow-md hidden md:block relative z-10"></aside>
 
     <div class="flex-1 flex flex-col h-full relative overflow-y-auto">
-        
-        <header id="header-container" class="bg-white shadow-sm z-20 sticky top-0">
-             </header>
+        <header id="header-container" class="bg-white shadow-sm z-20 sticky top-0 h-16"></header>
 
         <main class="p-6 flex-1">
-            <div class="max-w-4xl mx-auto"> <div class="mb-6 flex justify-between items-center">
+            <div class="max-w-4xl mx-auto"> 
+                
+                <div class="mb-6 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
                     <div>
                         <h1 class="text-2xl font-bold text-gray-800">Ranking Geral</h1>
-                        <p class="text-gray-500 text-sm">Veja quem está liderando a pontuação no OrgaNice.</p>
+                        <p class="text-gray-500 text-sm">Acompanhe o desempenho e a pontuação dos membros.</p>
                     </div>
-                    <button class="bg-indigo-600 text-white px-4 py-2 rounded-lg text-sm hover:bg-indigo-700 transition shadow-sm">
-                        Atualizar
+                    <button class="bg-indigo-600 text-white px-5 py-2 rounded-lg text-sm font-medium hover:bg-indigo-700 transition shadow-sm active:transform active:scale-95">
+                        Atualizar Lista
                     </button>
                 </div>
 
                 <div id="ranking-content">
-                    <div class="p-10 text-center text-gray-400">
+                    <div class="p-10 text-center text-gray-400 animate-pulse">
                         Carregando ranking...
                     </div>
                 </div>
@@ -43,43 +38,20 @@
     </div>
 
     <script type="module">
-        // Importando os componentes
-        import Sidebar from '../src/js/componentes/ui/Sidebar.js';
-        import Header from '../src/js/componentes/ui/Header.js';
-        
-        // Importa a NOVA classe Ranking que criamos
-        import Ranking from '../src/js/componentes/ui/Ranking.js'; 
+        // ATENÇÃO AO CAMINHO: Ajuste conforme sua estrutura de servidor
+        // Subindo de public -> temporario -> raiz -> src
+        import Ranking from '../../src/js/componentes/ui/Ranking.js'; 
 
         document.addEventListener('DOMContentLoaded', () => {
-            
-            // 1. Inicializar Sidebar (se o arquivo existir e tiver lógica parecida)
-            const sidebarContainer = document.getElementById('sidebar-container');
-            if (sidebarContainer && typeof Sidebar === 'function') {
-                // Tenta instanciar se for classe ou executar se for função
-                // new Sidebar('#sidebar-container').render();
-            }
-
-            // 2. Inicializar Header (se o arquivo existir)
-            const headerContainer = document.getElementById('header-container');
-            if (headerContainer && typeof Header === 'function') {
-                // new Header('#header-container').render();
-            }
-
-            // 3. Inicializar Ranking (AQUI ESTÁ A MUDANÇA PRINCIPAL)
             const rankingContainer = document.getElementById('ranking-content');
             
             if (rankingContainer) {
-                // Cria uma nova instância da classe Ranking passando o ID do container
-                const rankingComponent = new Ranking('#ranking-content');
-                
-                // Chama o método render para desenhar o HTML na tela
-                rankingComponent.render();
-                
-                console.log("Componente de Ranking renderizado.");
+                // Instancia e renderiza
+                const ranking = new Ranking('#ranking-content');
+                ranking.render();
             } else {
                 console.error("Elemento #ranking-content não encontrado.");
             }
-
         });
     </script>
 </body>
