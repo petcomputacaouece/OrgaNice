@@ -60,19 +60,25 @@ function Sidebar({ isOpen }) {
                 </div>
 
                 <div className="flex items-center gap-2 cursor-pointer">
-                    {IconMyTasks}
-                    <Typography as="p" variant="default">Minhas Tarefas</Typography>
+                    <Link to={"/tarefas"} className="flex items-center gap-2 cursor-pointer">
+                        {IconMyTasks}
+                        <Typography as="p" variant="default">Minhas Tarefas</Typography>
+                    </Link>
                 </div>
             </div>
 
             <div className="flex flex-col gap-6 border-b-2 p-4 w-64">
                 <div className="flex items-center gap-2 cursor-pointer">
-                    {IconMembers}
-                    <Typography as="p" variant="default">Membros</Typography>
+                    <Link to={"/membros"} className="flex items-center gap-2 cursor-pointer">
+                        {IconMembers}
+                        <Typography as="p" variant="default">Membros</Typography>
+                    </Link>
                 </div>
 
                 <div className="flex items-center gap-2 cursor-pointer">
-                    <Typography as="p" variant="default">Ranking</Typography>
+                    <Link to={"/ranking"} className="flex items-center gap-2 cursor-pointer">
+                        <Typography as="p" variant="default">Ranking</Typography>
+                    </Link>
                 </div>
 
                 <div className="flex items-center gap-2 cursor-pointer">
