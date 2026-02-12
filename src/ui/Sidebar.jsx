@@ -60,8 +60,10 @@ function Sidebar({ isOpen }) {
                 </div>
 
                 <div className="flex items-center gap-2 cursor-pointer">
+                    <Link to={"/tarefas"} className="flex items-center gap-2 cursor-pointer">
                     {IconMyTasks}
                     <Typography as="p" variant="default">Minhas Tarefas</Typography>
+                </Link>
                 </div>
             </div>
 

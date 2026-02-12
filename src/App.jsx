@@ -5,6 +5,7 @@ import { Home } from './pages/Home'
 import { Perfil } from './pages/Perfil'
 import { Pontos } from './pages/Pontos'
 import { Modelo } from './pages/Modelo'
+import { Tarefas } from './pages/Tarefas'
 
 function App() {
   return (
@@ -17,6 +18,8 @@ function App() {
           <Route path="perfil" element={<Perfil />} />
           <Route path="pontos" element={<Pontos />} />
           <Route path="modelo" element={<Modelo />} />
+          <Route path="tarefas" element={<Tarefas />} />
+
 
         </Route>
       </Routes>
