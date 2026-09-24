@@ -55,8 +55,10 @@ function Sidebar({ isOpen }) {
                 </Link>
 
                 <div className="flex items-center gap-2 cursor-pointer">
-                    {IconInbox}
-                    <Typography as="p" variant="default">Caixa de Entrada</Typography>
+                    <Link to={"/caixaEntrada"} className="flex items-center gap-2 cursor-pointer">
+                        {IconInbox}
+                        <Typography as="p" variant="default">Caixa de Entrada</Typography>
+                    </Link>
                 </div>
 
                 <div className="flex items-center gap-2 cursor-pointer">

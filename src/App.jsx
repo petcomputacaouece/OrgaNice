@@ -5,8 +5,9 @@ import { Perfil } from './pages/Perfil';
 import { Pontos } from './pages/Pontos';
 import { Modelo } from './pages/Modelo';
 import { Tarefas } from './pages/Tarefas';
-import  Membros  from './pages/Membros';
-import Ranking from './pages/Ranking'; 
+import Membros from './pages/Membros';
+import Ranking from './pages/Ranking';
+import { CaixaEntrada } from './pages/CaixaEntrada';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="membros" element={<Membros />} />
           <Route path="ranking" element={<Ranking />} />
           <Route path="tarefas" element={<Tarefas />} />
+          <Route path="caixaEntrada" element={<CaixaEntrada />} />
         </Route>
       </Routes>
     </HashRouter>
