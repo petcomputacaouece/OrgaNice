@@ -5,7 +5,7 @@ function PopUp({ nameSection, children, onPopUpClick, isOpen, className = "" }) 
     return (
         <div
             className={`
-                fixed inset-0 flex items-center justify-center bg-black/50
+                fixed inset-0 z-50 flex items-center justify-center bg-black/50
                 transition-all duration-200
                 ${isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}
             `}

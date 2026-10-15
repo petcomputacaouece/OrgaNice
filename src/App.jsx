@@ -7,6 +7,7 @@ import { Modelo } from './pages/Modelo';
 import { Tarefas } from './pages/Tarefas';
 import  Membros  from './pages/Membros';
 import Ranking from './pages/Ranking'; 
+import { Calendario } from './pages/Calendario';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="membros" element={<Membros />} />
           <Route path="ranking" element={<Ranking />} />
           <Route path="tarefas" element={<Tarefas />} />
+          <Route path="calendário" element={<Calendario />} />
         </Route>
       </Routes>
     </HashRouter>

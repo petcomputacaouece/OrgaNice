@@ -82,8 +82,10 @@ function Sidebar({ isOpen }) {
                 </div>
 
                 <div className="flex items-center gap-2 cursor-pointer">
-                    {IconCalendar}
-                    <Typography as="p" variant="default">Calendario</Typography>
+                    <Link to={"/calendário"} className="flex items-center gap-2 cursor-pointer">
+                        {IconCalendar}
+                        <Typography as="p" variant="default">Calendário</Typography>
+                    </Link>
                 </div>
             </div>
 
