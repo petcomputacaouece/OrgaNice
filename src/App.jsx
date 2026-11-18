@@ -1,27 +1,31 @@
-import { useState } from 'react'
-import { HashRouter, Routes, Route } from 'react-router-dom'
-import { Layout } from './ui/Layout'
-import { Home } from './pages/Home'
-import { Perfil } from './pages/Perfil'
-import { Pontos } from './pages/Pontos'
-import { Modelo } from './pages/Modelo'
+import { HashRouter, Routes, Route } from 'react-router-dom';
+import { Layout } from './ui/Layout';
+import { Home } from './pages/Home';
+import { Perfil } from './pages/Perfil';
+import { Pontos } from './pages/Pontos';
+import { Modelo } from './pages/Modelo';
+import { Tarefas } from './pages/Tarefas';
+import  Membros  from './pages/Membros';
+import Ranking from './pages/Ranking'; 
+import { Calendario } from './pages/Calendario';
 
 function App() {
   return (
     <HashRouter>
       <Routes>
-
         <Route path="/" element={<Layout />}>
-
           <Route index element={<Home />} />
           <Route path="perfil" element={<Perfil />} />
           <Route path="pontos" element={<Pontos />} />
           <Route path="modelo" element={<Modelo />} />
-
+          <Route path="membros" element={<Membros />} />
+          <Route path="ranking" element={<Ranking />} />
+          <Route path="tarefas" element={<Tarefas />} />
+          <Route path="calendário" element={<Calendario />} />
         </Route>
       </Routes>
     </HashRouter>
-  )
+  );
 }
 
-export default App
+export default App;

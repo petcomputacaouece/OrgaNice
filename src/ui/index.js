@@ -6,3 +6,5 @@ export { default as Sidebar } from './Sidebar';
 export { default as Table } from './Table';
 export { default as Typography } from './Typography';
 export { default as BttOptPerfil } from './BttOptPerfil';
+export { default as TaskCard } from './TaskCard';
+export { default as AddTaskModal } from './TaskCard';

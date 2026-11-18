@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OrgaNice - Ranking</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style> body { font-family: 'Inter', sans-serif; } </style>
+</head>
+<body class="bg-gray-50 h-screen overflow-hidden flex">
+
+    <aside id="sidebar-container" class="w-64 bg-white shadow-md hidden md:block relative z-10"></aside>
+
+    <div class="flex-1 flex flex-col h-full relative overflow-y-auto">
+        <header id="header-container" class="bg-white shadow-sm z-20 sticky top-0 h-16"></header>
+
+        <main class="p-6 flex-1">
+            <div class="max-w-4xl mx-auto"> 
+                
+                <div class="mb-6 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                    <div>
+                        <h1 class="text-2xl font-bold text-gray-800">Ranking Geral</h1>
+                        <p class="text-gray-500 text-sm">Acompanhe o desempenho e a pontuação dos membros.</p>
+                    </div>
+                    <button class="bg-indigo-600 text-white px-5 py-2 rounded-lg text-sm font-medium hover:bg-indigo-700 transition shadow-sm active:transform active:scale-95">
+                        Atualizar Lista
+                    </button>
+                </div>
+
+                <div id="ranking-content">
+                    <div class="p-10 text-center text-gray-400 animate-pulse">
+                        Carregando ranking...
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <script type="module">
+        // ATENÇÃO AO CAMINHO: Ajuste conforme sua estrutura de servidor
+        // Subindo de public -> temporario -> raiz -> src
+        import Ranking from '../../src/js/componentes/ui/Ranking.js'; 
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const rankingContainer = document.getElementById('ranking-content');
+            
+            if (rankingContainer) {
+                // Instancia e renderiza
+                const ranking = new Ranking('#ranking-content');
+                ranking.render();
+            } else {
+                console.error("Elemento #ranking-content não encontrado.");
+            }
+        });
+    </script>
+</body>
+</html>
