@@ -22,6 +22,7 @@ function App() {
           <Route path="ranking" element={<Ranking />} />
           <Route path="tarefas" element={<Tarefas />} />
           <Route path="caixaEntrada" element={<CaixaEntrada />} />
+          <Route path="calendário" element={<Calendario />} />
         </Route>
       </Routes>
     </HashRouter>
